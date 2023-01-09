@@ -1,1 +1,1 @@
-# skym-app
+# Skym
