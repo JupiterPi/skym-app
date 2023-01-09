@@ -105,6 +105,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "skym:build:production",
+            "firebaseProject": "skym-65cf3",
+            "firebaseHostingSite": "skym-65cf3"
+          }
         }
       }
     }

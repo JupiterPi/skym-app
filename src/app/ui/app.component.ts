@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import firebase from 'firebase/compat/app';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(public auth: AngularFireAuth) {}
+
   login() {
-    alert("logging in..");
+    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
+
+  logout() {
+    this.auth.signOut();
   }
 }

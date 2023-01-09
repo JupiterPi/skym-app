@@ -7,4 +7,17 @@ mat-toolbar {
         align-items: center;
         gap: 15px;
     }
+
+    #username {
+        font-size: 15px;
+    }
+
+    #photo {
+        height: 30px;
+        clip-path: circle(50% at 50% 50%);
+
+        img {
+            height: 100%;
+        }
+    }
 }

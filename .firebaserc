@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "skym-65cf3": {
+      "hosting": {
+        "skym": [
+          "skym-65cf3"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "skym-65cf3"
+  }
+}
