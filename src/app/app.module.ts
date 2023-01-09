@@ -11,10 +11,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environments/environment';
+import { SavedSnippetsComponent } from './ui/saved-snippets/saved-snippets.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SavedSnippetsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,7 @@ import { environment } from 'src/environments/environment';
     MatButtonModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

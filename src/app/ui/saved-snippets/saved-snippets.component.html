@@ -1,0 +1,15 @@
+<h2>Snippets</h2>
+<div class="snippet" *ngFor="let snippet of (snippets | async)">
+
+    Title: {{snippet.title}}
+    <br>
+    Text: {{snippet.text}}
+
+</div>
+
+<h2>Add Snippet</h2>
+<div id="add-snippet">
+    <input [(ngModel)]="newSnippetTitle">
+    <textarea [(ngModel)]="newSnippetText"></textarea>
+    <button mat-raised-button [disabled]="!ready()" (click)="createNewSnippet()">ADD</button>
+</div>
