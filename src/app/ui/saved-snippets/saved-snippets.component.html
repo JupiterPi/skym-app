@@ -11,5 +11,5 @@
 <div id="add-snippet">
     <input [(ngModel)]="newSnippetTitle">
     <textarea [(ngModel)]="newSnippetText"></textarea>
-    <button mat-raised-button [disabled]="!ready()" (click)="createNewSnippet()">ADD</button>
+    <button mat-flat-button color="primary" [disabled]="!ready()" (click)="createNewSnippet()">ADD</button>
 </div>
