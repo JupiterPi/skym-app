@@ -4,6 +4,8 @@
     Title: {{snippet.title}}
     <br>
     Text: {{snippet.text}}
+    <br>
+    <a [routerLink]="['/skimmer']" [queryParams]="{snippet: snippet.id}">Skimmer</a>
 
 </div>
 

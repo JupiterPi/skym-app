@@ -4,6 +4,9 @@
         <span>skym</span>
     </div>
     <div>
+        <button mat-flat-button color="primary" routerLink="skimmer">Skimmer</button>
+        <button mat-flat-button color="primary" routerLink="snippets">Snippets</button>
+
         <ng-container *ngIf="(auth.user | async) == null">
             <button mat-raised-button color="accent" (click)="login()">Login</button>
         </ng-container>
@@ -14,3 +17,5 @@
         </ng-container>
     </div>
 </mat-toolbar>
+
+<router-outlet></router-outlet>

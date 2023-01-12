@@ -1,0 +1,10 @@
+<div id="outer-container">
+    <mat-form-field appearance="fill">
+        <mat-label>Snippet</mat-label>
+        <mat-select [(value)]="chosenSnippetId" (valueChange)="loadSnippet($event)">
+            <mat-option *ngFor="let snippet of availableSnippets" [value]="snippet.id">{{snippet.title}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <app-skimmer *ngIf="snippet" [text]="snippet.text"></app-skimmer>
+</div>

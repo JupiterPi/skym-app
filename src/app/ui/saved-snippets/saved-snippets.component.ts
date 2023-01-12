@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { read } from 'fs';
 import { Observable } from 'rxjs';
-
-export interface Snippet {
-  title: string,
-  text: string,
-}
+import { Snippet, SnippetsService } from 'src/app/snippets.service';
 
 @Component({
   selector: 'app-saved-snippets',
@@ -14,12 +8,9 @@ export interface Snippet {
   styleUrls: ['./saved-snippets.component.scss']
 })
 export class SavedSnippetsComponent {
-  private snippetsCollection: AngularFirestoreCollection<Snippet>;
   snippets: Observable<Snippet[]>;
-
-  constructor(public db: AngularFirestore) {
-    this.snippetsCollection = this.db.collection<Snippet>("snippets");
-    this.snippets = this.snippetsCollection.valueChanges();
+  constructor(private snippetsService: SnippetsService) {
+    this.snippets = this.snippetsService.getSnippets();
   }
 
   newSnippetTitle = "";
@@ -31,10 +22,7 @@ export class SavedSnippetsComponent {
 
   createNewSnippet() {
     if (!this.ready()) return;
-    this.snippetsCollection.add({
-      title: this.newSnippetTitle,
-      text: this.newSnippetText,
-    });
+    this.snippetsService.addSnippet(this.newSnippetTitle, this.newSnippetText);
     this.newSnippetTitle = "";
     this.newSnippetText = "";
   }
