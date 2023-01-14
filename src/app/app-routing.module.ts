@@ -4,6 +4,7 @@ import { SavedSnippetsComponent } from './ui/saved-snippets/saved-snippets.compo
 import { SkimmerPageComponent } from './ui/skimmer-page/skimmer-page.component';
 
 const routes: Routes = [
+  {path: "", pathMatch: "full", redirectTo: "skimmer"},
   {path: "snippets", component: SavedSnippetsComponent},
   {path: "skimmer", component: SkimmerPageComponent},
 ];

@@ -2,9 +2,50 @@ h2, div {
     padding: 0 20px;
 }
 
+#snippets {
+  background-color: #d9d9d9;
+  padding: 30px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 20px;
+
+  mat-card {
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+
+    mat-card-content {
+      height: available;
+      margin: 0;
+      overflow: auto;
+    }
+
+    .card-divider {
+      flex-grow: 1;
+    }
+  }
+}
+
 #add-snippet {
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: flex-start;
+}
+
+/* scrollbar (for #snippets mat-card) */
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(114, 114, 114, 0.29);
 }

@@ -20,6 +20,8 @@ import { SkimmerComponent } from './ui/skimmer/skimmer.component';
 import { SkimmerPageComponent } from './ui/skimmer-page/skimmer-page.component';
 import {MatSliderModule} from "@angular/material/slider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatCardModule} from "@angular/material/card";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     FormsModule,
     MatSliderModule,
     MatProgressBarModule,
+    MatCardModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
