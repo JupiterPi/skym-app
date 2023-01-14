@@ -6,10 +6,10 @@
       <mat-slider
         min="100"
         max="600"
-        step="25" [(ngModel)]="wpm">
+        step="25" [(ngModel)]="wpm" (ngModelChange)="updateWpm($event)">
         <input matSliderThumb>
       </mat-slider>
-      <input id="wpm-input" [(ngModel)]="wpm">
+      <input id="wpm-input" [(ngModel)]="wpm" (ngModelChange)="updateWpm($event)">
     </div>
     <div id="buttons">
       <button mat-raised-button color="primary" (click)="started ? stopSkimmer() : startSkimmer()">
@@ -24,7 +24,7 @@
   </div>
 
   <div>
-    <div id="skimmer">
+    <div id="skimmer" [class.started]="started" [class.paused]="paused">
       <ng-container *ngIf="started">{{currentWord()}}</ng-container>
       <ng-container *ngIf="!started"><mat-icon id="placeholder-icon">bolt</mat-icon></ng-container>
     </div>

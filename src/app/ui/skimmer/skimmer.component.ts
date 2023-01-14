@@ -1,5 +1,6 @@
 import {Component, Input, OnDestroy} from '@angular/core';
 import Timeout = NodeJS.Timeout;
+import {PreferencesService} from "../../preferences.service";
 
 @Component({
   selector: 'app-skimmer',
@@ -7,6 +8,12 @@ import Timeout = NodeJS.Timeout;
   styleUrls: ['./skimmer.component.scss']
 })
 export class SkimmerComponent implements OnDestroy {
+  constructor(private preferencesService: PreferencesService) {
+    this.preferencesService.getPreferences().subscribe(preferences => {
+      this.wpm = preferences.wpm;
+    });
+  }
+
   @Input() text = "";
   words: string[] = [];
   wpm = 200;
@@ -70,5 +77,9 @@ export class SkimmerComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.stopSkimmer();
+  }
+
+  updateWpm(wpm: number) {
+    this.preferencesService.setWpm(wpm);
   }
 }

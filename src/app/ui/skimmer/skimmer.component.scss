@@ -12,6 +12,12 @@
   gap: 15px;
 }
 
+@media screen and (max-width: 450px) {
+  #container {
+    width: auto;
+  }
+}
+
 #config {
   display: flex;
   flex-direction: column;
@@ -43,6 +49,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:not(.started) {
+    width: 30px;
+  }
+
+  transition: color 200ms ease-in-out;
+  &.paused {
+    color: #bebebe;
+  }
 }
 
 #placeholder-icon {

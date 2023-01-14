@@ -1,23 +1,45 @@
 mat-toolbar {
-    justify-content: space-between;
+  justify-content: space-between;
+  align-items: center;
+
+  div {
+    display: inline-flex;
+    align-items: stretch;
+  }
+
+  #auth {
+    gap: 10px;
+
+    display: flex;
     align-items: center;
 
-    div {
-        display: inline-flex;
-        align-items: center;
-        gap: 15px;
-    }
-
     #username {
-        font-size: 15px;
+      font-size: 16px;
     }
 
     #photo {
-        height: 30px;
-        clip-path: circle(50% at 50% 50%);
+      height: 30px;
+      clip-path: circle(50% at 50% 50%);
 
-        img {
-            height: 100%;
-        }
+      img {
+        height: 100%;
+      }
     }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #auth .hide-on-sm {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  mat-toolbar {
+    justify-content: center;
+  }
+
+  #logo {
+    display: none;
+  }
 }
