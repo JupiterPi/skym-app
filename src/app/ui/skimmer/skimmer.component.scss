@@ -1,20 +1,83 @@
 #container {
-    height: 500px;
-    width: 400px;
-    background-color: rgb(232, 232, 232);
-    border: 1px solid rgb(199, 199, 199);
-    border-radius: 10px;
+  height: 300px;
+  width: 400px;
+  background-color: rgb(232, 232, 232);
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 10px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+#config {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  #wpm-input {
+    width: 40px;
+    font-family: "Roboto Medium", sans-serif;
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+  }
+}
+
+#buttons {
+  display: flex;
+  gap: 15px;
 }
 
 #skimmer {
-    background-color: black;
-    color: white;
-    display: inline-block;
-    font-size: 150%;
-    padding: 10px;
-    border-radius: 10px;
+  background-color: black;
+  color: white;
+  min-width: 15px;
+  height: 40px;
+  font-size: 30px;
+  padding: 10px 15px;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#placeholder-icon {
+  opacity: 0.5;
+  animation: ease-in-out placeholder-pulse 3s infinite;
+}
+
+@keyframes placeholder-pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+#progress-bar {
+  width: 80%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  transition: opacity 1s ease-in-out;
+  &:not(.visible) {
+    opacity: 0;
+  }
+
+  #forward-buttons {
+    display: flex;
+    justify-content: center;
+    opacity: 0.5;
+    transition: opacity 500ms ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }

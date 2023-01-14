@@ -18,6 +18,8 @@ import { SavedSnippetsComponent } from './ui/saved-snippets/saved-snippets.compo
 import { FormsModule } from '@angular/forms';
 import { SkimmerComponent } from './ui/skimmer/skimmer.component';
 import { SkimmerPageComponent } from './ui/skimmer-page/skimmer-page.component';
+import {MatSliderModule} from "@angular/material/slider";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { SkimmerPageComponent } from './ui/skimmer-page/skimmer-page.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     FormsModule,
+    MatSliderModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

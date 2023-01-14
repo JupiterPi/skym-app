@@ -1,6 +1,43 @@
 <div id="container">
-    
-    {{ text }}
-    <div id="skimmer">{{currentWord}}</div>
+
+  <div id="config">
+    <div>
+      Words/minute:
+      <mat-slider
+        min="100"
+        max="600"
+        step="25" [(ngModel)]="wpm">
+        <input matSliderThumb>
+      </mat-slider>
+      <input id="wpm-input" [(ngModel)]="wpm">
+    </div>
+    <div id="buttons">
+      <button mat-raised-button color="primary" (click)="started ? stopSkimmer() : startSkimmer()">
+        <mat-icon *ngIf="!started">play_arrow</mat-icon>
+        <mat-icon *ngIf="started">stop</mat-icon>
+      </button>
+      <button mat-raised-button [disabled]="!started" (click)="paused ? resumeSkimmer() : pauseSkimmer()">
+        <mat-icon *ngIf="!paused">pause</mat-icon>
+        <mat-icon *ngIf="paused">play_arrow</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div>
+    <div id="skimmer">
+      <ng-container *ngIf="started">{{currentWord()}}</ng-container>
+      <ng-container *ngIf="!started"><mat-icon id="placeholder-icon">bolt</mat-icon></ng-container>
+    </div>
+  </div>
+
+  <div id="progress-bar" [class.visible]="started || showComplete">
+    <mat-progress-bar mode="determinate" [value]="showComplete ? 100 : (i/words.length)*100"></mat-progress-bar>
+    <div id="forward-buttons">
+      <button mat-icon-button color="primary" [disabled]="!started" (click)="skip(-30)"><mat-icon>replay_30</mat-icon></button>
+      <button mat-icon-button color="primary" [disabled]="!started" (click)="skip(-5)"><mat-icon>replay_5</mat-icon></button>
+      <button mat-icon-button color="primary" [disabled]="!started" (click)="skip(5)"><mat-icon>forward_5</mat-icon></button>
+      <button mat-icon-button color="primary" [disabled]="!started" (click)="skip(30)"><mat-icon>forward_30</mat-icon></button>
+    </div>
+  </div>
 
 </div>
